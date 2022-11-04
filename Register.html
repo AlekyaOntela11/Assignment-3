@@ -14,33 +14,30 @@
 
 <h2>Register Form</h2>
 
-<form action="#to-some-server" method="post">
+<form action="#to-some-server" method="post" id="formreg">
   <div class="imgcontainer">
     <img src="Images\love.jpeg" alt="avatar" class="avatar">
   </div>
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
     
     <label for="psw"><b>Email id</b></label>
-    <input type="text" placeholder="Enter Email" name="Email" required>
+    <input type="text" placeholder="Enter Email" name="Email" id="email" required>
 
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" id="pwd" required>
 
     
     <label for="psw"><b>Reenter-Password</b></label>
-    <input type="password" placeholder="Enter Password Again" name="psw2" required>
+    <input type="password" placeholder="Enter Password Again" name="psw2" id="pwd1"required>
   
-    <button type="submit" onclick="register()">Register</button>
+    <button type="submit" >Register</button>
   </div>
 </form>
-<script>
-  function register(){
-    alert("You have successfully registered");
-  }
+<script src="main.js">
 </script>
 </body>
 </html>
