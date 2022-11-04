@@ -2,7 +2,6 @@ class notemaking
 {
     constructor(uname,email,pwd,pwd1,textarea)
     {
-
     this.UN=uname;
     this.Email=email;
     this.Pwd=pwd;
@@ -30,23 +29,41 @@ class notemaking
     {
         return this.Note;
     }
-
-    setFN(uname){
+     getUser()
+     {
+        return this.User;
+      }
+    getLoginpwd()
+    {
+        return this.Loginpwd;
+    }       
+    setUN(uname){
         this.UN=uname;
     }
     
-    setemail(email){
+    setEmail(email){
         this.Email=email;
 
     }
-    setPWD(pwd){
+    setPwd(pwd)
+    {
         this.Pwd=pwd;
     }
-    setPassword(pwd1){
+    setPassword(pwd1)
+    {
         this.Password=pwd1;
     }
-    setNts(textarea){
+    setNote(textarea)
+    {
         this.Note=textarea;
+    }
+    setUser(user)
+    {
+        this.User=user;
+    }
+    setLoginpwd(password)
+    {
+        this.Loginpwd=password;
     }
 }
 const registration=document.getElementById("formreg");
@@ -57,28 +74,32 @@ function register(e){
     let emailids=document.getElementById('email').value;
     let passwrd=document.getElementById('pwd').value;
     let Repasswrd=document.getElementById('pwd1').value;
-    console.log(`${username}`)
-    console.log(`${emailids}`)
-    console.log(`${passwrd}`)
-    console.log(`${Repasswrd}`)
+
+    let regi= new notemaking(username,emailids,passwrd,Repasswrd);
+
+    console.log(regi.UN)
+    console.log(regi.Email)
+    console.log(regi.Pwd)
+    console.log(regi.Password)
     registration.reset();
 }
 const loginform=document.getElementById("login");
-if(loginform) loginform.addEventListener('submit', login)
-function login(e){
-    e.preventDefault();
+if(loginform) loginform.addEventListener('submit', loginuser)
+function loginuser(l){
+    l.preventDefault();
     let user=document.getElementById('username').value;
     let password=document.getElementById('password').value;
-    console.log(`${user}`)
-    console.log(`${password}`)
+    console.log(`${user}`);
+    console.log(`${password}`);
     loginform.reset();
 }
 
 const noteform=document.getElementById("note");
-if(noteform) noteform.addEventListener('submit',note)
-function note(e){
-    e.preventDefault();
+if(noteform) noteform.addEventListener('submit',notem)
+function notem(f)
+{
+    f.preventDefault();
     let notefield=document.getElementById('textarea').value;
-    console.log(`${notefield}`)
+    console.log(`${notefield}`);
     noteform.reset();
 }
