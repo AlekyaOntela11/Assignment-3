@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="login.css">
+<link rel="icon" href="Images/cat.jpg" type="image/icon">
+<title>Login Page</title>
+</head>
+<body>
+  <ul>
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="Login.html">Signin</a></li>
+    <li><a href="Register.html">Register</a></li>
+    <li><a href="Notemaking.html">Notemaking</a></li>
+  </ul>
+
+<h2>Login Form</h2>
+
+<form action="Notemaking.html" method="post" id="login">
+  <div class="imgcontainer">
+    <img src="Images\loginlogo.jpg" alt="avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" id="username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+    <button type="submit"> Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+</form>
+<script src="main.js">
+</script>
+</body>
+</html>
