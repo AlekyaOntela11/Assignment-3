@@ -21,16 +21,5 @@ const users = [
       }
   ];
 
-  function allUsers() {
-    return users;
-  }
-  function login(user) { 
-    let newUser = users.filter( u => u.userName === user.userName);
-    if(!newUser[0]) throw Error("Username not found");
-    if(newUser[0].password !== user.password) throw Error("Password incorrect");
-  
-    return newUser[0];
-  }
-  
-  module.exports = { allUsers, login };
-  
+  let getUser = () => users;
+  module.exports = { getUser};

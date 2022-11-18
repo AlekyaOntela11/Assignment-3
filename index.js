@@ -14,8 +14,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use("/users", userRoutes);
-app.use("/notes",noteRoutes);
+app.use("/user", userRoutes);
+app.use("/note",noteRoutes);
 
 
 const PORT = process.env.PORT || 3000;

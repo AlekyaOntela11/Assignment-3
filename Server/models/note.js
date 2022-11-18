@@ -1,4 +1,4 @@
-const notetaking = [
+const notes = [
     {
       userId: 1234,
       noteId: 112233,
@@ -21,7 +21,5 @@ const notetaking = [
       }
   ];
 
- function getAllNote(){
-  return notetaking;
- }
-  module.exports = { getAllNote };
+  let getNote = () => notes;
+  module.exports = { getNote };

@@ -89,13 +89,26 @@ function loginuser(l){
     let user=document.getElementById('username').value;
     let password=document.getElementById('password').value;
     console.log(`${user}`);
+    console.log(`${password}`);
 }
 
-const noteform=document.getElementById("note");
-if(noteform) noteform.addEventListener('submit',notem)
-function notem(f)
-{
-    f.preventDefault();
-    let notefield=document.getElementById('textarea').value;
-    console.log(`${notefield}`);
+
+const userbtn = document.getElementById("button_1");
+if(userbtn) userbtn.addEventListener('click',getallUsers);
+
+const notebtn = document.getElementById("button_2");
+if(notebtn) notebtn.addEventListener('click',getallNotes);
+
+function getallUsers(){
+    fetch("http://localhost:3000/user/")
+    .then((res)=> res.json())
+    .then((data) => console.log(data))
+    .catch((err)=> console.log(err))
+}
+
+function getallNotes(){
+    fetch("http://localhost:3000/note/")
+    .then((res)=> res.json())
+    .then((data) => console.log(data))
+    .catch((err)=> console.log(err))
 }
