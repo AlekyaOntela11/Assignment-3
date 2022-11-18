@@ -11,7 +11,7 @@
 - Usage
 -  Methodology
 - ERD
-######  ==========================================================================================================
+######  ============================================================================================
 
 ## Installation
 ### To generate your own README, git clone the repo down to your local so you have the Node project on your local.
@@ -21,17 +21,17 @@
 * npm install nodemon -save-dev
 * npm install express dotenv 
 
-#### run this command *** npx nodemon index.js *** 
+#### run this command **_npx nodemon index.js_** 
 ####  Run npm install in order to install the following npm package dependencies as specified in the package.json
 ####  The application will start by running node index.js in the command line.
 
-######  ==========================================================================================================
+######  ===========================================================================================
 
 #### Answer the prompts in your command line to generate the README.
 
 #### The README has some automatically generated badges for your repo courtesy of shields.io and will include your profile picture & email from GitHub.
 
-######  ==========================================================================================================
+######  ===========================================================================================
 
 
 ## Usage
@@ -51,9 +51,7 @@
 * const, let,
 * await 
 
-### git clone 
-
-[![ER digram of the code](/Public/Images/ERD.png)]
+![ER digram of the code](/Public/Images/ERD.png)
 
 See the section on *[Alekya Ontela](https://github.com/AlekyaOntela11/Assignment-3.git)*.
 
