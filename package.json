@@ -4,21 +4,21 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-      "dev": "nodemon index.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "dev": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
-      "notemaking"
+        "notemaking"
     ],
     "author": "Alekya Ontela",
-    
-  "dependencies": {
-    "dotnet": "^1.1.4",
-    "express": "^4.18.2",
-    "package": "^1.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
-  }
-
+    "dependencies": {
+        "dotenv": "^16.0.3",
+        "dotnet": "^1.1.4",
+        "express": "^4.18.2",
+        "mysql2": "^2.3.3",
+        "package": "^1.0.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    }
 }
