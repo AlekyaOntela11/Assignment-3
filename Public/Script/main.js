@@ -66,7 +66,7 @@ class notemaking
         this.Loginpwd=password;
     }
 }
-// Fetch method implementation:
+//Fetch method implementation:
 async function fetchData(route = '', data = {}, methodType) {
     const response = await fetch(`http://localhost:3000${route}`, {
       method: methodType, // *GET, POST, PUT, DELETE, etc.
@@ -85,9 +85,10 @@ async function fetchData(route = '', data = {}, methodType) {
     } else {
       throw await response.json();
     }
-  }ß
+  }
 const registration=document.getElementById("formreg");
 if(registration) registration.addEventListener('submit',register)
+
 function register(e){
     e.preventDefault();
     let username=document.getElementById('uname').value;
@@ -106,6 +107,7 @@ function register(e){
 }
 const loginform=document.getElementById("login");
 if(loginform) loginform.addEventListener('submit', loginuser)
+
 function loginuser(l){
     l.preventDefault();
     let user=document.getElementById('username').value;
@@ -143,3 +145,17 @@ function getallNotes(){
     .then((data) => console.log(data))
     .catch((err)=> console.log(err))
 }
+function setCurrentUser(user) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+  
+  // getting current user function
+  // FIX this next class
+  function getCurrentUser() {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+  
+  // logout function for current user
+  function removeCurrentUser() {
+    localStorage.removeItem('user')
+  }
