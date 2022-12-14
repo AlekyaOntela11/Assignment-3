@@ -18,7 +18,7 @@ async function register(user) {
   let cuser = await getUser(user);
   if(cuser.length > 0) throw Error("Username already in exist");
   const sql = `INSERT INTO users (username,email,password)
-    VALUES ("${user.username}", "${user.email}","${user.password}");
+    VALUES ("${user.userName}", "${user.password}","${user.emailId}");
   `
   await con.query(sql);
   return await login(user);
@@ -35,7 +35,7 @@ async function login(user) {
 // Update User function
 async function editUser(user) {
   let sql = `UPDATE users 
-    SET username = "${user.username}"
+    SET username = "${user.userName}"
     WHERE user = ${user.user_id}`;
 
   await con.query(sql);
@@ -54,20 +54,17 @@ async function deleteUser(user) {
 
 async function getUser(user) {
   let sql;
-
-  if(user.user_id) {
+  if(user.userID) {
     sql = `
       SELECT * FROM users
-       WHERE user_id = ${user.user_id}
+       WHERE user_id = ${user.userID}
     `;
   } else {
     sql = `
     SELECT * FROM users 
-      WHERE username = "${user.username}"
+      WHERE username = "${user.userName}"
   `;
   }
-  return await con.query(sql);  
+    return await con.query(sql);  
 }
-module.exports = { getAllUsers, login, register, editUser, deleteUser};
-
-//chages done cUser to cuser updateUser to updateuser and my user_id, username, email
+module.exports = { getAllUsers, login, register, editUser, deleteUser,getUser};
