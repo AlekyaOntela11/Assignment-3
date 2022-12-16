@@ -11,28 +11,22 @@ createTable();
 async function getAllNotes() {
   const sql = `SELECT * FROM notes;`;
   let notes = await con.query(sql);
-  console.log(notes)
+  console.log(notes);
+  return notes;
 }
+
 // Create  No - Registering
-async function register(note) {
+async function noteTake(note){
   let cnote = await getNote(note);
   if(cnote.length > 0) throw Error("Note already in exist");
-  const sql = `INSERT INTO notes (note_id,password)
+  const sql = `INSERT INTO notes (note_id,note_content)
     VALUES ("${note.note_content}", "${note.note_id}");
   `
   await con.query(sql);
-  return await login(note);
+  return await noteTake(note);
 }
 
-// Read User -- login note
-async function login(note) { 
-  let cnote = await getNote(note);
-  if(!cnote[0]) throw Error("Username not found");
-  if(cnote[0].password !== note.password) throw Error("Password incorrect");
-  return cnote[0];
-}
-
-// Update User function
+// Update Note function
 async function editNote(note) {
   let sql = `UPDATE notes 
     SET username = "${note.note_content}"
@@ -44,7 +38,7 @@ async function editNote(note) {
   return updateduser[0];
 }
 
-// Delete User function
+// Delete Note function
 async function deleteNote(note) {
   let sql = `DELETE FROM notes
     WHERE user_id  = ${note.note_id}`;
@@ -63,9 +57,9 @@ async function getNote(note) {
   } else {
     sql = `
     SELECT * FROM notes 
-      WHERE note_content = "${note.n}"
+      WHERE note_content = "${note.note_content}"
   `;
   }
   return await con.query(sql);  
 }
-module.exports = { getAllNotes, login, register, editNote, deleteNote};
+module.exports = { getAllNotes,editNote, deleteNote};

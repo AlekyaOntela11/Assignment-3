@@ -15,7 +15,11 @@ router
 
 .post('/login', async (req, res) => {
   try {
+    console.log(req.body);
+    console.log("loginrequest");
     let user = await User.login(req.body);
+    console.log(user);
+    console.log("rootslogin");
     res.send({...user,password: undefined})
   } catch(err) {
     res.status(401).send({message: err.message});
@@ -25,8 +29,10 @@ router
 .post('/register', async (req, res) => {
   try {
     let user = await User.register(req.body);
-    res.send({...user, email, password: undefined})
+    res.send({...user, password: undefined})
   } catch(err) {
+    console.log(req.body);
+    console.log("roots");
     res.status(401).send({message: err.message});
   }
 })

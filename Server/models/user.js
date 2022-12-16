@@ -27,8 +27,8 @@ async function register(user) {
 // Read User -- login user
 async function login(user) { 
   let cuser = await getUser(user);
-  if(!cuser[0]) throw Error("Username not found");
-  if(cuser[0].password !== user.password) throw Error("Password incorrect");
+  // if(!cuser[0]) throw Error("Username not found");
+  // if(cuser[0].password !== user.password) throw Error("Password incorrect");
   return cuser[0];
 }
 

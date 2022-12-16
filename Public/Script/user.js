@@ -2,10 +2,10 @@
 
 // user class
 class User {
-  constructor(userName, emailId,password) {
+  constructor(userName, email,password) {
     this.userName = userName;
     this.password = password;
-    this.emailId = emailId;
+    this.email = email;
   }
 
   getUsername() {
@@ -73,8 +73,18 @@ function register(e){
     .catch((err)=>{
       console.log(`Error!!! ${err.message}`)
     })
-    document.getElementById("formreg").reset();
 }
 function setCurrentUser(user) {
   localStorage.setItem('user', JSON.stringify(user));
 }
+function getCurrentUser() {
+  return JSON.parse(localStorage.getItem('user'));
+}
+
+// logout function for current user
+function removeCurrentUser() {
+  localStorage.removeItem('user');
+  window.location.href = "Login.html";
+}
+let logout = document.getElementById("Logout");
+if(logout) logout.addEventListener('click', removeCurrentUser);

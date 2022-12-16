@@ -6,33 +6,25 @@ router.get('/', async (req,res)=> {
   try {
     const notes = await Note.getNote();
     res.send(notes);
-
   }
   catch(err){
     res.status(401).send({message: 'error in note'});
   }
 })
-// .post('/login', async (req, res) => {
-//   try {
-//     let note = await Note.login(req.body);
-//     res.send({...note_id,note_content: undefined})
-//   } catch(err) {
-//     res.status(401).send({message: err.message});
-//   }
-// })
 
-.post('/register', async (req, res) => {
+.post('/noteTake', async (req, res) => {
   try {
-    let note = await Note.register(req.body);
-    res.send({...note_id,note_content: undefined})
+    let note = await Note.noteTake(req.body);
+    res.send({...note,note_id,note_content: undefined})
   } catch(err) {
     res.status(401).send({message: err.message});
   }
 })
+//ost createpost read
 .put('/edit', async (req, res) => {
   try {
-    let note = await Note.editUser(req.body);
-    res.send({...note_id,note_content: undefined});
+    let note = await Note.editNote(req.body);
+    res.send({...note,note_id,note_content: undefined});
   } catch(err) {
     res.status(401).send({message: err.message})
   }
