@@ -34,11 +34,13 @@ class Note {
   function displayNote(e){
       e.preventDefault();
       let notes=document.getElementById('textarea').value;
-  
       let note= new Note(notes);
       console.log(note);
-      fetchData("/notes/notetake", notes, "POST")
+      console.log("note taking");
+
+      fetchData("/notes/noteTake", notes, "POST")
       .then((data)=>{
+        console.log(note);
         setCurrentUser(data);
         window.location.href = "Notemaking.html";
       })

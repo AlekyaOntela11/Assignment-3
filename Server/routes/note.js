@@ -20,7 +20,17 @@ router.get('/', async (req,res)=> {
     res.status(401).send({message: err.message});
   }
 })
-//ost createpost read
+
+.post('/read', async (req,res) => {
+try {
+let note =await Note.Read(req.body);
+res.send(note);
+}
+catch(err) {
+res. status(401).send ( {messages: err,message});
+}
+})
+//put createpost read
 .put('/edit', async (req, res) => {
   try {
     let note = await Note.editNote(req.body);
