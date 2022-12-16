@@ -17,32 +17,33 @@ async function getAllNotes() {
 
 // Create  Note
 async function noteTake(note){
-  const sql = `INSERT INTO notes (note_id,note_content,user_id)
-    VALUES ("${note.note_content}", "${note.note_id}","${note.userID}");
+  const sql = `INSERT INTO notes (note_content, user_id)
+    VALUES ("${note.note_content}", "${note.user_id}");
   `
   await con.query(sql);
-  return {message:"Successfully added notes"}
+  return await readNote(note);
 }
-async function fetch(note){
+async function readNote(note){
   let cNote = await getNote(note);
-let sql = "SELECT users.userName, notes.notecontent FROM users,notes WHERE users.userrD-notes.usertd;";
 if(!cNote[e]) throw Error ( "Note not found");
+return cNote;
 }
 
 //Useful function
 async function getNote(note){
   let sql;
-if(note.userID){
+if(note.user_id){
   sql = `
   SELECT * FROM notes
-   WHERE user_id = ${note.userID}
+   WHERE user_id = ${note.user_id}
 `;
+console.log(sql);
 }
 else
 {
   sql = `
   SELECT * FROM notes
-   WHERE note_id = ${note.noteID}
+   WHERE note_id = ${note.note_id}
 `;
 }
 }
@@ -50,7 +51,7 @@ else
 async function editNote(note) {
   let sql = `UPDATE notes 
     SET note_contentt = "${note.note_content}"
-    WHERE note_id = ${note.noteID}`;
+    WHERE note_id = ${note.note_id}`;
 
   await con.query(sql);
 
@@ -61,8 +62,8 @@ async function editNote(note) {
 // Delete Note function
 async function deleteNote(note) {
   let sql = `DELETE FROM notes
-    WHERE user_id  = ${note.noteId}`;
+    WHERE user_id  = ${note.note_id}`;
 
  await con.query(sql);
 }
-module.exports = { getAllNotes,noteTake,editNote, deleteNote};
+module.exports = { getAllNotes,readNote,noteTake,editNote, deleteNote};

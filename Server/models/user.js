@@ -54,10 +54,10 @@ async function deleteUser(user) {
 
 async function getUser(user) {
   let sql;
-  if(user.userID) {
+  if(user.user_id) {
     sql = `
       SELECT * FROM users
-       WHERE user_id = ${user.userID}
+       WHERE user_id = ${user.user_id}
     `;
   } else {
     sql = `

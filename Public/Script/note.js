@@ -1,12 +1,24 @@
 class Note {
-    constructor(noteContent) {
-      this.noteContent = noteContent; 
+    constructor(note_content) {
+      this.note_content = note_content; 
     }
   
-    getNotename() {
-      return this.noteContent;
+    getnote_content() {
+      return this.note_content;
     }
   }
+/*
+  class User {
+    constructor(userName,password,email) {
+      this.userName = userName;
+      this.password = password;
+      this.email = email;
+    }
+  
+    getUsername() {
+      return this.userName;
+    }
+  }*/
   async function fetchData(route = '', data = {}, methodType) {
     const response = await fetch(`http://localhost:3000${route}`, {
       method: methodType, // *GET, POST, PUT, DELETE, etc.
@@ -33,12 +45,14 @@ class Note {
   
   function displayNote(e){
       e.preventDefault();
-      let notes=document.getElementById('textarea').value;
-      let note= new Note(notes);
+      let note_content=document.getElementById('textarea').value;
+      let note= new Note(note_content);
+      //let user= new User(userName,password,email);
+      //note.user_id = user.user_id;
       console.log(note);
       console.log("note taking");
 
-      fetchData("/notes/noteTake", notes, "POST")
+      fetchData("/notes/noteTake", note, "POST")
       .then((data)=>{
         console.log(note);
         setCurrentUser(data);

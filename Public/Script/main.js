@@ -139,6 +139,6 @@ function setCurrentUser(user) {
   // logout function for current user
   function removeCurrentUser() {
     localStorage.removeItem('user');
-    window.location.href = "Login.html";
+    window.location.href = "login.html";
   }
   module.exports = { fetchData, setCurrentUser};

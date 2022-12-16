@@ -2,10 +2,11 @@ const express = require('express');
 const Note = require('../models/note');
 const router = express.Router();
 
-router.get('/', async (req,res)=> {
+router
+.get('/', async ( req,res )=> {
   try {
-    const notes = await Note.getNote();
-    res.send(notes);
+    const note = await Note.getNote();
+    res.send(note);
   }
   catch(err){
     res.status(401).send({message: 'error in note'});
@@ -15,6 +16,8 @@ router.get('/', async (req,res)=> {
 .post('/noteTake', async (req, res) => {
   try {
     let note = await Note.noteTake(req.body);
+    console.log(note);
+    console.log("notetaking");
     res.send({...note,note_id,note_content: undefined})
   } catch(err) {
     res.status(401).send({message: err.message});

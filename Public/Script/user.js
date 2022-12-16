@@ -2,7 +2,7 @@
 
 // user class
 class User {
-  constructor(userName, email,password) {
+  constructor(userName,password,email) {
     this.userName = userName;
     this.password = password;
     this.email = email;
@@ -39,9 +39,8 @@ function login(e){
     e.preventDefault();
     let username=document.getElementById('username').value;
     let password=document.getElementById('password').value;
-    let user = new User(username,'',password);
+    let user = new User(username,password);
     console.log(user);
- 
     fetchData("/users/login", user, "POST")
     .then((data) => {
       setCurrentUser(data);
@@ -80,7 +79,7 @@ function setCurrentUser(user) {
 function getCurrentUser() {
   return JSON.parse(localStorage.getItem('user'));
 }
-
+/*
 // logout function for current user
 function removeCurrentUser() {
   localStorage.removeItem('user');
@@ -88,3 +87,4 @@ function removeCurrentUser() {
 }
 let logout = document.getElementById("Logout");
 if(logout) logout.addEventListener('click', removeCurrentUser);
+*/
