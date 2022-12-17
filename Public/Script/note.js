@@ -47,8 +47,6 @@ class Note {
       e.preventDefault();
       let note_content=document.getElementById('textarea').value;
       let note= new Note(note_content);
-      //let user= new User(userName,password,email);
-      //note.user_id = user.user_id;
       console.log(note);
       console.log("note taking");
 
